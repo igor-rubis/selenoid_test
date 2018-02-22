@@ -5,7 +5,7 @@
 docker pull selenoid/chrome:62.0
 ```
 ```bash
-docker pull selenoid/firefox:62.0
+docker pull selenoid/firefox:57.0
 ```
 [ browsers config file](/config/browsers.json)
 
