@@ -1,4 +1,5 @@
 # selenoid_test
+[Full documentation](http://aerokube.com/selenoid/latest)
 
 ### pull browser images
 ```bash
@@ -18,5 +19,13 @@ docker run -d \
 -v `pwd`/config/:/etc/selenoid/:ro \
 aerokube/selenoid:latest-release
 ```
+
+### reload configuration
+```bash
+kill -HUP <pid>
+docker kill -s HUP <container-id-or-name>
+```
+
 ### links
-* [hub status url](http://localhost:4444/status)
+* [hub url: http://localhost:4444/wd/hub](http://localhost:4444/wd/hub)
+* [hub status url: http://localhost:4444/status](http://localhost:4444/status)
