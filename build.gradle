@@ -1,0 +1,24 @@
+group 'com.irubis'
+version '1.0-SNAPSHOT'
+
+import groovy.json.JsonSlurper
+
+task start(type: Exec) {
+    commandLine './start_selenoid.sh'
+}
+
+task stop(type: Exec) {
+    commandLine './stop_selenoid.sh'
+}
+
+task pullImages(type: Exec) {
+    def browsers = new JsonSlurper().parse(new BufferedReader(new InputStreamReader(new FileInputStream("config/browsers.json"),"UTF-8")))
+    browsers.each { browser ->
+        browser.value.versions.each { version ->
+//            executable '/usr/bin/docker'
+//            args('pull', "${version.value.image}")
+
+            commandLine "docker pull ${version.value.image}"
+        }
+    }
+}
